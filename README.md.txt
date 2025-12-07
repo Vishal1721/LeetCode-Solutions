@@ -1,2 +1,2 @@
 # LeetCode Solutions
-This repository contains categorized LeetCode problem solutions
+This repository contains categorized LeetCode problem solutions.
