@@ -12,3 +12,5 @@ public:
         return xor1^xor2;
     }
 };
+//O(N)
+//O(1)
