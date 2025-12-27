@@ -26,3 +26,81 @@ int longestConsecutive(vector<int>& nums) {
 };
 //tc-o(n)
 //sc-o(n)
+
+//second solution
+#include<iostream>
+#include<vector>
+#include<set>
+using namespace std;
+class Ritzy {
+private:
+	set<string>st;
+public:
+	Ritzy(int x){}
+	bool masterTicket(vector<string>seat){
+		for(int i=0;i<seat.size();i++) {
+			if(st.find(seat[i])!=st.end()) {
+				cout<<"Seat is Booked : "<<seat[i]<<endl;
+				return false;
+			}
+		}
+			return true;
+
+	}
+	void book() {
+		cout<<"Ticket is Booked successfully"<<endl;
+	}
+};
+class Master {
+private:
+    Ritzy ritzy;
+public:
+    Master(int ritzyTickets)
+        : ritzy(ritzyTickets) {}
+
+    void seatBooking(vector<string>& seat) {
+        if (ritzy.masterTicket(seat)) {
+            cout << "Ticket is available" << endl;
+            ritzy.book();
+        }
+    }
+
+//    int getTicket() {
+//        return ritzy.getTicketCount();   // delegate
+//    }
+//
+//    void ticketcount() {
+//        cout << "TicketCount : " << ritzy.getTicketCount() << endl;
+//    }
+};
+
+int main() {
+	string movie;
+	int theatre;
+	string seatNumber;
+	cout<<"Choose the movie"<<endl;
+	cout<<"option 1: Master "<<"\n"<<"option 2 : kaithi "<<"\n"<<"option 3 : avathor "<<endl;
+	cin>>movie;
+	if(movie=="Master")
+	{
+		int ritzyTickets;
+		cout<<"Theatre : "<<"\n"<< "Ritzy cinemas:option 1"<<"\n"<<"Vetri cinemas : option 2: "<<endl;
+		cin>>theatre;
+		if(theatre==1) {
+		cout<<"No of ticket : "<<endl;
+		cin>>ritzyTickets;
+		if(ritzyTickets==0) {
+			cout<<"Ticket count should be greater than or equal to one"<<endl;
+		}
+		Master m(ritzyTickets);
+		cout<<"Choose the seat : "<<endl;
+		vector<string>seat;
+		for(int i=0;i<ritzyTickets;i++) {
+			cin>>seatNumber;
+			seat.push_back(seatNumber);
+
+		}
+		m.seatBooking(seat);
+		}
+	}
+}
