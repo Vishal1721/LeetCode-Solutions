@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int sum = 1 , maxf=INT_MIN,maxf1=INT_MIN;
+        for(int i=0;i<nums.size();i++) {
+            sum=sum*nums[i];
+            maxf=max(maxf,sum);
+            if(sum==0) {
+                sum=1;
+            }
+        }
+        sum=1;
+        for(int i=nums.size()-1;i>=0;i--) {
+            sum=sum*nums[i];
+            maxf1=max(maxf1,sum);
+            if(sum==0) {
+                sum=1;
+            }
+        }
+        return max(maxf,maxf1);
+    }
+};
+
+//Dp approach
+//Tc-o(n);
+//Sc - o(1);
