@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> pivotArray(vector<int>& nums, int pivot) {
+        vector<int>result(nums.size());
+        int i=0,j=nums.size()-1,k=0,s=nums.size()-1;
+        while(i<nums.size() && j>=0) {
+            if(nums[i]<pivot) {
+                result[k]=nums[i];
+                k++;
+            }
+            if(nums[j]>pivot) {
+                result[s] = nums[j];
+                s--;
+                
+            }
+            i++;j--;
+        }
+        
+        while(k<=s) {
+            result[k++]=pivot;
+        }
+        return result;
+    }
+};
