@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        set<int>st;
+        int maxf=0;
+        int i=0,j=0;
+        while(i<s.size() && j<s.size()) {
+            if(st.find(s[j])==st.end()) {
+                maxf=max(maxf,j-i+1);
+                st.insert(s[j]);
+                j++;
+
+            }
+            else
+            {
+                st.erase(s[i]);
+                i++;
+            }
+        }
+        return maxf;
+    }
+};
+
+//two pointer
