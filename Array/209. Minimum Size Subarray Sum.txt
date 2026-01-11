@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) 
+    {
+        int sum=0,i=0,j=0,minf=INT_MAX;
+        bool istrue=false;
+        while(i<nums.size()) {
+            sum=sum+nums[i];
+            while(sum>=target) {
+                istrue=true;
+                minf=min(minf,i-j+1);
+                sum=sum-nums[j];
+                j++;
+            }
+            i++;
+        }
+        if(istrue==false) return 0;
+        return minf;
+    }
+};
+//TC-o(n)
