@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int minPairSum(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int maxf=0;
+        int i=0,j=nums.size()-1;
+        while(i<j) {
+            int sum=nums[j]+nums[i];
+            maxf=max(maxf,sum);
+            i++;
+            j--;
+        }
+    return maxf;
+    }
+};
+//sort
+//two pointers
+//tc-o(nlogn)
+//sc-o(1)
