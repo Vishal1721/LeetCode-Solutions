@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int equalSubstring(string s, string t, int maxCost) {
+        vector<int>arr;
+        for(int i=0;i<s.size();i++) {
+            arr.push_back(abs(s[i]-t[i]));
+        }
+        int i=0,j=0,maxLen=INT_MIN,sum=0;;
+        while(i<arr.size() && j<arr.size()) {
+            sum=sum+arr[j];
+            while(j<arr.size() && sum>maxCost) {
+                sum=sum-arr[i];
+                i++;
+            }
+            maxLen=max(maxLen,j-i+1);
+            j++;
+        }
+        return maxLen;
+    }
+};
