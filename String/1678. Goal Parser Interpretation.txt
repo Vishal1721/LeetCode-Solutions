@@ -1,0 +1,18 @@
+class Solution {
+public:
+    string interpret(string command) {
+        string k;
+        int cnt=0;
+        for(int i=0;i<command.size();i++) {
+            if((command[i]>='A' && command[i]<='Z') || (command[i]>='a' && command[i]<='z')) {
+                k=k+command[i];
+                cnt=0;
+            }
+            else if(command[i]=='(') cnt++;
+            else if(command[i]==')' && cnt>0) {
+                k=k+'o';
+            }
+        }
+        return k;
+    }
+};
