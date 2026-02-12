@@ -11,6 +11,7 @@ public:
                if(i>0 && s[i-1]==ch) continue;
                if(i<s.size() && s[i+1]==ch) continue;
                s[i]=ch;
+		break;
             }
         }
        }
