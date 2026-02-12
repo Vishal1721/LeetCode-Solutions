@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string modifyString(string s) {
+        if(s.size()==1) {
+            if(s[0]=='?') return "a";
+            return s;
+        } 
+       for(int i=0;i<s.size();i++) {
+        if(s[i]=='?') {
+            for(char ch='a';ch<='z';ch++) {
+               if(i>0 && s[i-1]==ch) continue;
+               if(i<s.size() && s[i+1]==ch) continue;
+               s[i]=ch;
+            }
+        }
+       }
+       return s;
+    }
+};
