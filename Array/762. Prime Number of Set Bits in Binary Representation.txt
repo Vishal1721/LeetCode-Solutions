@@ -1,0 +1,30 @@
+class Solution {
+public:
+bool isPrime(int num)
+{
+    int cnt=0;
+    if(num<2) {
+        return false;
+    }
+    for(int i = 2; i*i <= num; i++) {
+            if(num % i == 0) {
+                return false;
+            }
+    }
+    return true;
+}
+    int countPrimeSetBits(int left, int right) {
+       int cnt=0,ans=0;
+       for(int i=left;i<=right;i++) {
+        int n=i,cnt=0;
+            while(n!=0) {
+                n = n & (n-1);
+                cnt++;
+            }
+            if(isPrime(cnt)) {
+                ans++;
+            }
+       }
+       return ans;
+    }
+};
