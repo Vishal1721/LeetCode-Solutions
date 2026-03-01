@@ -1,0 +1,21 @@
+class Solution {
+public:
+vector<int> NcR(int n) {
+            vector<int>ansRow;
+            long long res=1;
+            ansRow.push_back(1);
+            for(int i=1;i<n;i++) {
+                res=res*(n-i);
+                res=res/(i);
+                ansRow.push_back(res);
+            }
+            return ansRow;
+}
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>>ans;
+        for(int i=1;i<=numRows;i++) {
+            ans.push_back(NcR(i));
+        }
+        return ans;
+    }
+};
