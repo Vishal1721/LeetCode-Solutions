@@ -1,0 +1,22 @@
+// User function template for C++
+
+class Solution {
+  public:
+    long long countEvenSum(vector<int>& arr) {
+        // code here
+        long long oddCnt=0,evenCnt=1,prefSum=0,ans=0;
+        for(int i=0;i<arr.size();i++) {
+            prefSum+=arr[i];
+            if(prefSum%2==0) {
+                ans=ans+evenCnt;
+                evenCnt++;
+            }
+            else {
+                ans=ans+oddCnt;
+                oddCnt++;
+            }
+            
+        }
+        return ans;
+    }
+};
